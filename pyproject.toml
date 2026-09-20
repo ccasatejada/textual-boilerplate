@@ -1,5 +1,9 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "uvbp"
+name = "textual-boilerplate"
 version = "0.1.0"
 description = "boilerplate"
 readme = "README.md"
@@ -20,6 +24,13 @@ dependencies = [
     "textual>=7.4.0",
     "types-requests>=2.32.4.20260107",
 ]
+
+[project.scripts]
+textual-boilerplate = "textual_boilerplate.main:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/textual_boilerplate"]
+
 [tool.ruff.lint]
 select = [
     # pycodestyle
@@ -65,9 +76,8 @@ module = ["textual.*", "dotenv.*", "rich_pixels.*", "alembic.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
 testpaths = ["tests"]
-addopts = "--cov=service --cov=scrapper --cov=model --cov=pages --cov=utils --cov-report=term-missing --cov-report=html"
+addopts = "--cov=textual_boilerplate --cov-report=term-missing --cov-report=html"
 
 [dependency-groups]
 dev = [

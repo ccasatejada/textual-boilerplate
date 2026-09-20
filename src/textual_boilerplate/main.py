@@ -11,5 +11,9 @@ class MainApp(App[None]):
     CSS_PATH: ClassVar[str | PurePath | list[str | PurePath] | None] = []
 
 
-if __name__ == "__main__":
+def run() -> None:
     MainApp().run()
+
+
+if __name__ == "__main__":
+    run()
